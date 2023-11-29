@@ -19,6 +19,7 @@ class MyThread1 extends Thread{
 	
 }
 	public void run(){
+		System.out.println(Thread.currentThread().getPriority());
 		t.PrintMultiplicationTable(5);
 	}
 }
@@ -30,6 +31,8 @@ class MyThread1 extends Thread{
 		}
 		
 		public void run(){
+			
+			System.out.println(Thread.currentThread().getPriority());
 			t.PrintMultiplicationTable(7);
 		}
 	}
@@ -43,10 +46,12 @@ public class ThreadDemo {
     MyThread1 t=new MyThread1(m);
    
 	
-    MyThread2 t2=new MyThread2(m); 
-    t.start();
-   
+    MyThread2 t2=new MyThread2(m);
+    
+    t2.setPriority(2);
     t2.start();
+    t.start();
+    
     
 	}
 
